@@ -1,6 +1,6 @@
 [package]
 name = "chatgpt"
-version = "0.0.0"
+version = "1.0.1"
 authors = ["lencx <cxin1314@gmail.com>"]
 description = "ChatGPT Desktop Application"
 repository = "https://github.com/lencx/ChatGPT"

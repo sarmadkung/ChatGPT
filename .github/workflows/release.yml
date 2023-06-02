@@ -121,6 +121,9 @@ jobs:
           name: artifacts-aarch64
           path: artifacts/aarch64
 
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Rename artifacts
         run: |
           mv "artifacts/aarch64/dmg/ChatGPT_${{ env.version }}_aarch64.dmg" "artifacts/ChatGPT_${{ env.version }}_macos_aarch64.dmg"
@@ -139,6 +142,8 @@ jobs:
           mv "artifacts/x86_64/ChatGPT_${{ env.version }}_x64_en-US.msi.zip" "artifacts/ChatGPT_${{ env.version }}_windows_x86_64.msi.zip"
           mv "artifacts/x86_64/ChatGPT_${{ env.version }}_x64_en-US.msi.zip.sig" "artifacts/ChatGPT_${{ env.version }}_windows_x86_64.msi.zip.sig"
 
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Create Release
         uses: softprops/action-gh-release@master
         env:
@@ -150,6 +155,9 @@ jobs:
           prerelease: false
           generate_release_notes: false
           files: ./artifacts/**/*
+
+      - name: Display structure of downloaded files
+        run: ls -R
 
   updater:
     runs-on: ubuntu-latest

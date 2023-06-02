@@ -9,6 +9,7 @@ mod utils;
 
 use app::{cmd, fs_extra, gpt, menu, script, setup, window};
 use conf::AppConf;
+use std::env;
 use tauri_plugin_autostart::MacosLauncher;
 use tauri_plugin_log::{
   fern::colors::{Color, ColoredLevelConfig},
@@ -17,6 +18,7 @@ use tauri_plugin_log::{
 
 #[tokio::main]
 async fn main() {
+  env::set_var("RUST_BACKTRACE", "1");
   let app_conf = AppConf::read().write();
   // If the file does not exist, creating the file will block menu synchronization
   utils::create_chatgpt_prompts();
